@@ -49,6 +49,10 @@ class EntityDescriptor(object):
         self.entity = entity
         self.parent = None
 
+        # set default value for options
+        self.table_args = []
+        self.table_options = {}
+
         bases = []
         for base in entity.__bases__:
             if isinstance(base, EntityMeta):
@@ -92,9 +96,6 @@ class EntityDescriptor(object):
 
         #
         self.relationships = []
-
-        # set default value for options
-        self.table_args = []
 
         # base class(es) options_defaults
         options_defaults = self.options_defaults()
