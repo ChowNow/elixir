@@ -14,8 +14,13 @@ from sqlalchemy import Table, Column, Integer, desc, ForeignKey, and_, \
                        ForeignKeyConstraint
 from sqlalchemy.orm import MapperExtension, mapper, object_session, \
                            EXT_CONTINUE, polymorphic_union, \
-                           scoped_session as ScopedSession, \
                            ColumnProperty
+
+try:
+    from sqlalchemy.orm import ScopedSession
+except ImportError:
+    from sqlalchemy.orm import scoped_session as ScopedSession
+
 from sqlalchemy.sql import ColumnCollection
 
 import elixir
