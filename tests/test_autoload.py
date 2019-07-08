@@ -401,6 +401,6 @@ class TestAutoload(object):
 
         setup_all(True)
 
-        colname = Item.table.c['owner_user_id'].foreign_keys[0].column.name
+        colname = list(Item.table.c['owner_user_id'].foreign_keys)[0].column.name
         assert colname == 'user_id'
 
