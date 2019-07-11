@@ -1,7 +1,7 @@
 This library was forked off of https://github.com/ifwe/elixir.git (commit 3cb0cdfd93a9930d5f4489411b12ec14e83d57fe)
 to be modified for compatibility with Python 2 and 3.
 
-To run unit tests, install `nose`, `sqlalchemy`, and `future`. Then execute `nosetests`.
+To run unit tests, execute `tox`.
 
 -----
 About
