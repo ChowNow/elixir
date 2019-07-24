@@ -409,7 +409,7 @@ from sqlalchemy import ForeignKeyConstraint, Column, Table, and_
 from sqlalchemy.orm import relation, backref, class_mapper
 from sqlalchemy.ext.associationproxy import association_proxy
 
-from . import options
+from elixir import options
 from elixir.statements import ClassMutator
 from elixir.properties import Property
 from elixir.entity import EntityMeta, DEBUG
