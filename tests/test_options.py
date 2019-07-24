@@ -4,7 +4,8 @@ test options
 
 from sqlalchemy import UniqueConstraint, create_engine, Column
 from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.exceptions import SQLError, ConcurrentModificationError
+from sqlalchemy.exc import StatementError
+from sqlalchemy.orm.exc import ConcurrentModificationError
 from elixir import *
 
 class TestOptions(object):
@@ -54,6 +55,7 @@ class TestOptions(object):
         s2.close()
 
     def test_allowcoloverride_false(self):
+
         class MyEntity(Entity):
             name = Field(String(30))
 
@@ -64,21 +66,6 @@ class TestOptions(object):
             assert False
         except Exception:
             pass
-
-    def test_allowcoloverride_true(self):
-        class MyEntity(Entity):
-            name = Field(String(30))
-            using_options(allowcoloverride=True)
-
-        setup_all()
-
-        # Note that this test is bogus as you cannot just change a column this
-        # way since the mapper is already constructed at this point and will
-        # use the old column!!! This test is only meant as a way to check no
-        # exception is raised.
-        #TODO: provide a proper test (using autoloaded tables)
-        MyEntity._descriptor.add_column(Column('name', String(30),
-                                               default='test'))
 
     def test_tablename_func(self):
         import re
@@ -222,7 +209,7 @@ class TestTableOptions(object):
         try:
             session.commit()
             assert False
-        except SQLError:
+        except StatementError:
             pass
 
     def test_several_statements(self):
@@ -243,14 +230,14 @@ class TestTableOptions(object):
         try:
             session.commit()
             assert False
-        except SQLError:
+        except StatementError:
             session.close()
 
         a100 = A(name1='1', name2='0', name3='0')
         try:
             session.commit()
             assert False
-        except SQLError:
+        except StatementError:
             session.close()
 
     def test_unique_constraint_many_to_one(self):
@@ -281,7 +268,7 @@ class TestTableOptions(object):
         raised = False
         try:
             session.commit()
-        except SQLError:
+        except StatementError:
             raised = True
 
         assert raised
