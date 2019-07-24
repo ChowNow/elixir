@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import turbogears
 from nose import with_setup
 from turbogears import testutil
@@ -17,7 +18,7 @@ def test_method():
     "the index method should return a string called now"
     import types
     result = testutil.call(cherrypy.root.index)
-    assert type(result["now"]) == types.StringType
+    assert type(result["now"]) == bytes
 test_method = with_setup(teardown=teardown_func)(test_method)
 
 def test_indextitle():

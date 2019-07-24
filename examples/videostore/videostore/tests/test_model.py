@@ -4,6 +4,7 @@
 # choice for testing, because you can use an in-memory database
 # which is very fast.
 
+from __future__ import absolute_import
 from turbogears import testutil, database
 # from videostore.model import YourDataClass, User
 

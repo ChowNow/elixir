@@ -1,7 +1,9 @@
 """
 test inheritance with abstract entities
 """
+from __future__ import absolute_import
 
+from builtins import object
 import re
 
 from elixir import *

@@ -177,6 +177,7 @@ not work on normal entities, and the normal using_options statement does not
 work on base classes (because normal options do not and should not propagate to
 the children classes).
 '''
+from __future__ import absolute_import
 
 from sqlalchemy import Integer, String
 
@@ -230,7 +231,7 @@ options_defaults = dict(
     table_options={}
 )
 
-valid_options = options_defaults.keys() + [
+valid_options = list(options_defaults.keys()) + [
     'metadata',
     'session',
     'collection'

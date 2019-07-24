@@ -399,14 +399,17 @@ ManyToMany_ relationships.
         has_and_belongs_to_many('articles', of_kind='Article')
 
 '''
+from __future__ import absolute_import, print_function
 
+from builtins import str, zip
+from past.builtins import basestring
 import warnings
 
 from sqlalchemy import ForeignKeyConstraint, Column, Table, and_
 from sqlalchemy.orm import relation, backref, class_mapper
 from sqlalchemy.ext.associationproxy import association_proxy
 
-import options
+from . import options
 from elixir.statements import ClassMutator
 from elixir.properties import Property
 from elixir.entity import EntityMeta, DEBUG
@@ -1105,7 +1108,7 @@ class ManyToMany(Relationship):
             self.table = Table(tablename, e1_desc.metadata,
                                schema=schema, *args, **complete_kwargs)
             if DEBUG:
-                print self.table.repr2()
+                print(self.table.repr2())
 
     def _build_join_clauses(self):
         # In the case we have a self-reference, we need to build join clauses
@@ -1212,7 +1215,7 @@ def _get_join_clauses(local_table, local_cols1, local_cols2, target_table):
     # match.
 
 #TODO: rewrite this. Even with the comment, I don't even understand it myself.
-    for cols, constraint in constraint_map.iteritems():
+    for cols, constraint in constraint_map.items():
         if cols == cols1 or (cols != cols2 and
                              not cols1 and (cols2 in constraint_map or
                                             cols2 is None)):
