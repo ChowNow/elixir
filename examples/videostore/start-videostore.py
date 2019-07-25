@@ -1,4 +1,5 @@
 #!/Library/Frameworks/Python.framework/Versions/2.4/Resources/Python.app/Contents/MacOS/Python
+from __future__ import absolute_import
 import pkg_resources
 pkg_resources.require("TurboGears")
 

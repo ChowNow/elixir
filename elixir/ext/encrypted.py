@@ -31,7 +31,9 @@ instance has been flushed to the database (and thus encrypted), the value for
 that attribute will be crypted in the in-memory object in addition to the
 database row.
 '''
+from __future__ import absolute_import
 
+from builtins import object
 from Crypto.Cipher import Blowfish
 from elixir.statements import Statement
 from sqlalchemy.orm import MapperExtension, EXT_CONTINUE, EXT_STOP

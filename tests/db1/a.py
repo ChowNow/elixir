@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 from elixir import Entity, ManyToOne, OneToMany, ManyToMany, using_options
 
 class A1(Entity):

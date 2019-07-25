@@ -1,7 +1,9 @@
 """
 Test the associable statement generator
 """
+from __future__ import absolute_import
 
+from builtins import object
 from sqlalchemy import and_
 
 from elixir import *

@@ -44,7 +44,9 @@ Note that relationships that are stored in mapping tables will not be included
 as part of the versioning process, and will need to be handled manually. Only
 values within the entity's main table will be versioned into the history table.
 '''
+from __future__ import absolute_import
 
+from builtins import object
 from datetime              import datetime
 import inspect
 
@@ -106,12 +108,12 @@ class VersionedMapperExtension(MapperExtension):
         ignored = instance.__class__.__ignored_fields__
         version_colname, timestamp_colname = \
             instance.__class__.__versioned_column_names__
-        for key in instance.table.c.keys():
+        for key in list(instance.table.c.keys()):
             if key in ignored:
                 continue
             if getattr(instance, key) != old_values[key]:
                 # the instance was really updated, so we create a new version
-                dict_values = dict(old_values.items())
+                dict_values = dict(list(old_values.items()))
                 connection.execute(
                     instance.__class__.__history_table__.insert(), dict_values)
                 old_version = getattr(instance, version_colname)
@@ -244,7 +246,7 @@ class VersionedEntityBuilder(EntityBuilder):
             )).execute().fetchone()
 
             entity.table.update(get_entity_where(self)).execute(
-                dict(old_version.items())
+                dict(list(old_version.items()))
             )
 
             table.delete(and_(get_history_where(self),

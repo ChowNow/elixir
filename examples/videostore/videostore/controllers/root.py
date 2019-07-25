@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from turbogears.controllers     import RootController
 from videostore.model           import Movie, Director, Actor
 from turbogears                 import identity, redirect, expose

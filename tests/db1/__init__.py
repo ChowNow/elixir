@@ -1,1 +1,2 @@
-import a, b, c
+from __future__ import absolute_import
+from . import a, b, c

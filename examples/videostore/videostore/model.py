@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from turbogears.database    import metadata, session
 from elixir                 import Unicode, DateTime, String, Integer
 from elixir                 import Entity, Field, using_options

@@ -1,7 +1,9 @@
 """
 test integrating Elixir entities with plain SQLAlchemy defined classes
 """
+from __future__ import absolute_import
 
+from builtins import object
 from sqlalchemy.orm import *
 from sqlalchemy import *
 from elixir import *

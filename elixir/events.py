@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 from sqlalchemy.orm import reconstructor
 
 __all__ = [

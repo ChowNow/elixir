@@ -1,7 +1,9 @@
 """
 Test spreading entities accross several modules
 """
+from __future__ import absolute_import
 
+from builtins import object
 import sys
 
 import elixir
@@ -87,8 +89,8 @@ class TestPackages(object):
 
         elixir.entities = elixir.collection.RelativeEntityCollection()
 
-        import db1
-        import db2
+        import tests.db1
+        import tests.db2
 
         setup_all(True)
 

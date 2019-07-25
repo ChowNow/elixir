@@ -14,6 +14,7 @@ and instead focuses on providing a simpler syntax for defining model objects
 when you do not need the full expressiveness of SQLAlchemy's manual mapper
 definitions.
 '''
+from __future__ import absolute_import
 
 try:
     set
@@ -38,7 +39,7 @@ from elixir.statements import Statement
 from elixir.collection import EntityCollection, GlobalEntityCollection
 
 
-__version__ = '0.8.1dev'
+__version__ = '0.9.0'
 
 __all__ = ['Entity', 'EntityBase', 'EntityMeta', 'EntityCollection',
            'entities',

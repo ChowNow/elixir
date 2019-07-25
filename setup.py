@@ -1,12 +1,8 @@
+from __future__ import absolute_import
 from setuptools import setup, find_packages
-import sys
-
-extra = {}
-if sys.version_info >= (3,):
-    extra['use_2to3'] = True
 
 setup(name="Elixir",
-      version="0.8.1",
+      version="0.9.0",
       description="Declarative Mapper for SQLAlchemy",
       long_description="""
 Elixir
@@ -31,9 +27,10 @@ SVN version: <http://elixir.ematia.de/svn/elixir/trunk#egg=Elixir-dev>
       maintainer="Gaetan de Menten",
       maintainer_email="gdementen@gmail.com",
       url="http://elixir.ematia.de",
-      license = "MIT License",
-      install_requires = [
-          "SQLAlchemy >= 1.0.17"
+      license="MIT License",
+      install_requires=[
+          "SQLAlchemy >= 1.0.17",
+          "future"
       ],
       packages=find_packages(exclude=['ez_setup', 'tests', 'examples']),
       classifiers=[
@@ -42,8 +39,8 @@ SVN version: <http://elixir.ematia.de/svn/elixir/trunk#egg=Elixir-dev>
           "License :: OSI Approved :: MIT License",
           "Operating System :: OS Independent",
           "Programming Language :: Python",
+          "Programming Language :: Python :: 3",
           "Topic :: Database :: Front-Ends",
           "Topic :: Software Development :: Libraries :: Python Modules"
       ],
-      test_suite = 'nose.collector',
-      **extra)
+      test_suite='nose.collector')

@@ -2,7 +2,11 @@
 This module provides the ``Entity`` base class, as well as its metaclass
 ``EntityMeta``.
 '''
+from __future__ import absolute_import, print_function
 
+from builtins import object
+from future.utils import with_metaclass
+from past.builtins import basestring
 import sys
 import types
 import warnings
@@ -309,7 +313,7 @@ class EntityDescriptor(object):
         self.entity.table = Table(self.tablename, self.metadata,
                                   *args, **kwargs)
         if DEBUG:
-            print self.entity.table.repr2()
+            print(self.entity.table.repr2())
 
     def setup_reltables(self):
         self.call_builders('create_tables')
@@ -337,8 +341,9 @@ class EntityDescriptor(object):
         # create a list of callbacks for each event
         methods = {}
 
-        all_methods = getmembers(self.entity,
-                                 lambda a: isinstance(a, types.MethodType))
+        # NOTE(je): types.FunctionType was added to get the same behavior in both python 2 and 3
+        criteria = lambda a: isinstance(a, types.FunctionType) or isinstance(a, types.MethodType)
+        all_methods = getmembers(self.entity, criteria)
 
         for name, method in all_methods:
             for event in getattr(method, '_elixir_events', []):
@@ -509,12 +514,12 @@ class EntityDescriptor(object):
 
         table = self.entity.table
         if table is not None:
-            if check_duplicate and col.key in table.columns.keys():
+            if check_duplicate and col.key in list(table.columns.keys()):
                 raise Exception("Column '%s' already exist in table '%s' ! " %
                                 (col.key, table.name))
             table.append_column(col)
             if DEBUG:
-                print "table.append_column(%s)" % col
+                print("table.append_column(%s)" % col)
 
     def add_constraint(self, constraint):
         self.constraints.append(constraint)
@@ -541,7 +546,7 @@ class EntityDescriptor(object):
         if mapper:
             mapper.add_property(name, property)
             if DEBUG:
-                print "mapper.add_property('%s', %s)" % (name, repr(property))
+                print("mapper.add_property('%s', %s)" % (name, repr(property)))
 
     def add_mapper_extension(self, extension):
         extensions = self.mapper_options.get('extension', [])
@@ -764,7 +769,7 @@ def instrument_class(cls):
 
     # Process attributes (using the assignment syntax), looking for
     # 'Property' instances and attaching them to this entity.
-    properties = [(name, attr) for name, attr in cls.__dict__.iteritems()
+    properties = [(name, attr) for name, attr in cls.__dict__.items()
                                if isinstance(attr, Property)]
     sorted_props = sorted(base_props + properties,
                           key=lambda i: i[1]._counter)
@@ -803,7 +808,7 @@ def setup_entities(entities):
         # delete all Elixir properties so that it doesn't interfere with
         # SQLAlchemy. At this point they should have be converted to
         # builders.
-        for name, attr in entity.__dict__.items():
+        for name, attr in list(entity.__dict__.items()):
             if isinstance(attr, Property):
                 delattr(entity, name)
 
@@ -877,7 +882,7 @@ class EntityBase(object):
         self.set(**kwargs)
 
     def set(self, **kwargs):
-        for key, value in kwargs.iteritems():
+        for key, value in kwargs.items():
             setattr(self, key, value)
 
     @classmethod
@@ -911,7 +916,7 @@ class EntityBase(object):
 
         mapper = sqlalchemy.orm.object_mapper(self)
 
-        for key, value in data.iteritems():
+        for key, value in data.items():
             if isinstance(value, dict):
                 dbvalue = getattr(self, key)
                 rel_class = mapper.get_property(key).mapper.class_
@@ -947,7 +952,7 @@ class EntityBase(object):
                                       if isinstance(p, ColumnProperty)]
         data = dict([(name, getattr(self, name))
                      for name in col_prop_names if name not in exclude])
-        for rname, rdeep in deep.iteritems():
+        for rname, rdeep in deep.items():
             dbdata = getattr(self, rname)
             #FIXME: use attribute names (ie coltoprop) instead of column names
             fks = self.mapper.get_property(rname).remote_side
@@ -1019,7 +1024,7 @@ class EntityBase(object):
         return cls.query.get(*args, **kwargs)
 
 
-class Entity(EntityBase):
+class Entity(with_metaclass(EntityMeta, EntityBase)):
     '''
     The base class for all entities
 
@@ -1041,6 +1046,5 @@ class Entity(EntityBase):
     For further information, please refer to the provided examples or
     tutorial.
     '''
-    __metaclass__ = EntityMeta
 
 
