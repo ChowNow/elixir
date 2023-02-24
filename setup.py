@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from setuptools import setup, find_packages
 
 setup(name="Elixir",
-      version="0.9.0",
+      version="1.0.1",
       description="Declarative Mapper for SQLAlchemy",
       long_description="""
 Elixir

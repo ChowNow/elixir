@@ -114,7 +114,7 @@ class RelativeEntityCollection(BaseCollection):
                     "'%s' relative to '%s'" % (key, entity.__module__))
             entity_module = '.'.join(chunks[:chunkstokeep])
 
-            if entity_module and entity_module is not '__main__':
+            if entity_module and entity_module != '__main__':
                 full_path = '%s.%s' % (entity_module, full_path)
 
             root = ''
