@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from past.builtins import execfile
 from setuptools import setup, find_packages
 from turbogears.finddata import find_package_data

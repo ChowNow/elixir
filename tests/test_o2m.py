@@ -1,8 +1,6 @@
 """
 test one to many relationships
 """
-from __future__ import absolute_import
-
 from builtins import object
 from elixir import *
 from sqlalchemy import and_

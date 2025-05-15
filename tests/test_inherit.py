@@ -1,8 +1,6 @@
 """
 test inheritance
 """
-from __future__ import absolute_import, print_function
-
 from builtins import zip
 from builtins import object
 from elixir import *

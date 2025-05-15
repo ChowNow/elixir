@@ -105,8 +105,6 @@ Here is a quick example of how to use ``has_field``.
         has_field('id', Integer, primary_key=True)
         has_field('name', String(50))
 '''
-from __future__ import absolute_import
-
 from past.builtins import basestring
 from sqlalchemy import Column
 from sqlalchemy.orm import deferred, synonym

@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from builtins import object
 from elixir import *
 from elixir.ext.perform_ddl import perform_ddl, preload_data

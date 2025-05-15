@@ -1,8 +1,6 @@
 """
 test the different syntaxes to define fields
 """
-from __future__ import absolute_import
-
 from builtins import object
 from elixir import *
 

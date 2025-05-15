@@ -1,8 +1,6 @@
 """
 Test spreading entities accross several modules
 """
-from __future__ import absolute_import
-
 from builtins import object
 import sys
 

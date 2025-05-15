@@ -399,8 +399,6 @@ ManyToMany_ relationships.
         has_and_belongs_to_many('articles', of_kind='Article')
 
 '''
-from __future__ import absolute_import, print_function
-
 from builtins import str, zip
 from past.builtins import basestring
 import warnings

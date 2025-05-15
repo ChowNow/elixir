@@ -2,8 +2,6 @@
 This module provides the ``Entity`` base class, as well as its metaclass
 ``EntityMeta``.
 '''
-from __future__ import absolute_import, print_function
-
 from builtins import object
 from future.utils import with_metaclass
 from past.builtins import basestring

@@ -1,8 +1,6 @@
 """
 test autoloaded entities
 """
-from __future__ import absolute_import
-
 from builtins import object
 from sqlalchemy import Table, Column, ForeignKey
 from elixir import *

@@ -1,8 +1,6 @@
 """
 test having entities using a custom base class
 """
-from __future__ import absolute_import
-
 from builtins import object
 from elixir import *
 import elixir
