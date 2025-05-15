@@ -400,7 +400,6 @@ ManyToMany_ relationships.
 
 '''
 from builtins import str, zip
-from past.builtins import basestring
 import warnings
 
 from sqlalchemy import ForeignKeyConstraint, Column, Table, and_
@@ -491,7 +490,7 @@ class Relationship(Property):
     @property
     def target(self):
         if not self._target:
-            if isinstance(self.of_kind, basestring):
+            if isinstance(self.of_kind, str):
                 collection = self.entity._descriptor.collection
                 self._target = collection.resolve(self.of_kind, self.entity)
             else:

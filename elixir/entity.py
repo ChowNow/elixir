@@ -4,7 +4,6 @@ This module provides the ``Entity`` base class, as well as its metaclass
 '''
 from builtins import object
 from future.utils import with_metaclass
-from past.builtins import basestring
 import sys
 import types
 import warnings
@@ -174,7 +173,7 @@ class EntityDescriptor(object):
             self.identity = self.identity(entity)
 
         if self.polymorphic:
-            if not isinstance(self.polymorphic, basestring):
+            if not isinstance(self.polymorphic, str):
                 self.polymorphic = options.DEFAULT_POLYMORPHIC_COL_NAME
 
     #---------------------
@@ -231,7 +230,7 @@ class EntityDescriptor(object):
                         if col.primary_key:
                             self.add_column(col.copy())
             elif not self.has_pk and self.auto_primarykey:
-                if isinstance(self.auto_primarykey, basestring):
+                if isinstance(self.auto_primarykey, str):
                     colname = self.auto_primarykey
                 else:
                     colname = options.DEFAULT_AUTO_PRIMARYKEY_NAME
@@ -303,7 +302,7 @@ class EntityDescriptor(object):
                                        options.POLYMORPHIC_COL_TYPE))
 
             if self.version_id_col:
-                if not isinstance(self.version_id_col, basestring):
+                if not isinstance(self.version_id_col, str):
                     self.version_id_col = options.DEFAULT_VERSION_ID_COL_NAME
                 self.add_column(Column(self.version_id_col, Integer))
 
@@ -371,7 +370,7 @@ class EntityDescriptor(object):
         return children
 
     def translate_order_by(self, order_by):
-        if isinstance(order_by, basestring):
+        if isinstance(order_by, str):
             order_by = [order_by]
 
         order = []
