@@ -4,14 +4,13 @@ test having entities using a custom base class
 from builtins import object
 from elixir import *
 import elixir
-from future.utils import with_metaclass
 
 def setup():
     metadata.bind = 'sqlite://'
 
     global MyBase
 
-    class MyBase(with_metaclass(EntityMeta, object)):
+    class MyBase(metaclass=EntityMeta):
         def __init__(self, **kwargs):
             for key, value in list(kwargs.items()):
                 setattr(self, key, value)
@@ -43,7 +42,7 @@ class TestCustomBase(object):
             def __get__(*args):
                 raise AttributeError
 
-        class MyEntity(with_metaclass(EntityMeta, EntityBase)):
+        class MyEntity(metaclass=EntityMeta):
             d = BrokenDescriptor()
 
         class A(MyEntity):
@@ -76,7 +75,7 @@ class TestCustomBase(object):
             def test(self):
                 return "success"
 
-        class InheritedBase(with_metaclass(EntityMeta, BaseParent)):
+        class InheritedBase(BaseParent, metaclass=EntityMeta):
             pass
 
         class A(InheritedBase):
@@ -96,7 +95,7 @@ class TestCustomBase(object):
         assert a.test() == "success"
 
     def test_base_with_fields(self):
-        class FieldBase(with_metaclass(EntityMeta, object)):
+        class FieldBase(metaclass=EntityMeta):
             common = Field(String(32))
 
         class A(FieldBase):
@@ -112,7 +111,7 @@ class TestCustomBase(object):
         assert 'common' in B.table.columns
 
     def test_base_with_relation(self):
-        class FieldBase(with_metaclass(EntityMeta, object)):
+        class FieldBase(metaclass=EntityMeta):
             common = ManyToOne('A')
 
         class A(FieldBase):
@@ -131,7 +130,7 @@ class TestCustomBase(object):
         class BaseParent(object):
             common1 = Field(String(32))
 
-        class FieldBase(with_metaclass(EntityMeta, BaseParent)):
+        class FieldBase(BaseParent, metaclass=EntityMeta):
             common2 = Field(String(32))
 
         class A(FieldBase):
@@ -154,7 +153,7 @@ class TestCustomBase(object):
         def camel_to_underscore(entity):
             return re.sub(r'(.+?)([A-Z])+?', r'\1_\2', entity.__name__).lower()
 
-        class OptionBase(with_metaclass(EntityMeta, object)):
+        class OptionBase(metaclass=EntityMeta):
             options_defaults = dict(tablename=camel_to_underscore)
             using_options_defaults(identity=camel_to_underscore)
             using_options_defaults(inheritance='multi')
@@ -176,7 +175,7 @@ class TestCustomBase(object):
 
         collection = elixir.collection.RelativeEntityCollection()
 
-        class Base(with_metaclass(EntityMeta, object)):
+        class Base(metaclass=EntityMeta):
             using_options_defaults(collection=collection)
 
         class A(Base):
@@ -200,7 +199,7 @@ class TestCustomBase(object):
     def test_base_custom_session(self):
         from sqlalchemy.orm import sessionmaker
 
-        class Base(with_metaclass(EntityMeta, object)):
+        class Base(metaclass=EntityMeta):
             using_options_defaults(session=None)
 
         class A(Base):

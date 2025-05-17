@@ -32,7 +32,6 @@ Here is a quick example of how to use ``has_property``.
 from builtins import object
 from elixir.statements import PropertyStatement
 from sqlalchemy.orm import column_property, synonym
-from future.utils import with_metaclass
 
 __doc_all__ = ['EntityBuilder', 'Property', 'GenericProperty',
                'ColumnProperty']
@@ -106,7 +105,7 @@ class CounterMeta(type):
         return instance
 
 
-class Property(with_metaclass(CounterMeta, EntityBuilder)):
+class Property(EntityBuilder, metaclass=CounterMeta):
     '''
     Abstract base class for all properties of an Entity.
     '''

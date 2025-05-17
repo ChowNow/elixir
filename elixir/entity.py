@@ -3,7 +3,6 @@ This module provides the ``Entity`` base class, as well as its metaclass
 ``EntityMeta``.
 '''
 from builtins import object
-from future.utils import with_metaclass
 import sys
 import types
 import warnings
@@ -1021,7 +1020,7 @@ class EntityBase(object):
         return cls.query.get(*args, **kwargs)
 
 
-class Entity(with_metaclass(EntityMeta, EntityBase)):
+class Entity(EntityBase, metaclass=EntityMeta):
     '''
     The base class for all entities
 
