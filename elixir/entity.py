@@ -45,7 +45,7 @@ def session_mapper_factory(scoped_session):
     return session_mapper
 
 
-class EntityDescriptor(object):
+class EntityDescriptor:
     '''
     EntityDescriptor describes fields and options needed for table creation.
     '''
@@ -666,7 +666,7 @@ class EntityDescriptor(object):
             self._pk_props = [col_to_prop[c] for c in pk_cols]
         return self._pk_props
 
-class FakePK(object):
+class FakePK:
     def __init__(self, descriptor):
         self.descriptor = descriptor
 
@@ -674,7 +674,7 @@ class FakePK(object):
     def columns(self):
         return self.descriptor.primary_keys
 
-class FakeTable(object):
+class FakeTable:
     def __init__(self, descriptor):
         self.descriptor = descriptor
         self.primary_key = FakePK(descriptor)
@@ -856,7 +856,7 @@ def cleanup_entities(entities):
         desc.constraints = []
         desc.properties = {}
 
-class EntityBase(object):
+class EntityBase:
     """
     This class holds all methods of the "Entity" base class, but does not act
     as a base class itself (it does not use the EntityMeta metaclass), but

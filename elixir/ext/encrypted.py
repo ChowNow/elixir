@@ -62,7 +62,7 @@ def decrypt_value(value, secret):
 # acts_as_encrypted statement
 #
 
-class ActsAsEncrypted(object):
+class ActsAsEncrypted:
 
     def __init__(self, entity, for_fields=[], with_secret='abcdef'):
 

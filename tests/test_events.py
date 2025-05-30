@@ -4,7 +4,7 @@ from elixir.events import *
 from sqlalchemy import Table, Column
 
 
-class TestEvents(object):
+class TestEvents:
     def teardown(self):
         cleanup_all(True)
 
@@ -104,7 +104,7 @@ class TestEvents(object):
         checkCount('reconstructor_called', 2)
 
     def test_multiple_inheritance(self):
-        class AddEventMethods(object):
+        class AddEventMethods:
             update_count = 0
 
             @after_update
@@ -127,7 +127,7 @@ class TestEvents(object):
         assert a.update_count == 1
 
     def test_entity_wh_bad_descriptors(self):
-        class BrokenDescriptor(object):
+        class BrokenDescriptor:
             def __get__(*args):
                 raise AttributeError
 

@@ -6,7 +6,7 @@ from elixir import *
 def setup():
     metadata.bind = 'sqlite://'
 
-class TestManyToOne(object):
+class TestManyToOne:
     def teardown(self):
         cleanup_all(True)
 

@@ -8,7 +8,7 @@ def setup():
     metadata.bind = 'sqlite://'
 
 
-class TestThrough(object):
+class TestThrough:
     def teardown(self):
         cleanup_all(True)
 

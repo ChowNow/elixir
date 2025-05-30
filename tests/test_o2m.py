@@ -8,7 +8,7 @@ from sqlalchemy.ext.orderinglist import ordering_list
 def setup():
     metadata.bind = 'sqlite://'
 
-class TestOneToMany(object):
+class TestOneToMany:
     def teardown(self):
         cleanup_all(True)
 

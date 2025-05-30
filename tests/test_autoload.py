@@ -23,7 +23,7 @@ def teardown():
 
 # -----------
 
-class TestAutoload(object):
+class TestAutoload:
     def setup(self):
         metadata.bind = 'sqlite://'
 

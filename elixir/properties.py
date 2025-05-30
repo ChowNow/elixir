@@ -35,7 +35,7 @@ from sqlalchemy.orm import column_property, synonym
 __doc_all__ = ['EntityBuilder', 'Property', 'GenericProperty',
                'ColumnProperty']
 
-class EntityBuilder(object):
+class EntityBuilder:
     '''
     Abstract base class for all entity builders. An Entity builder is a class
     of objects which can be added to an Entity (usually by using special

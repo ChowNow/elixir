@@ -10,7 +10,7 @@ from elixir.ext.associable import associable
 def setup():
     metadata.bind = 'sqlite://'
 
-class TestOrders(object):
+class TestOrders:
     def teardown(self):
         cleanup_all(True)
 

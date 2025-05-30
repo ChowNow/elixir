@@ -14,7 +14,7 @@ def setup():
             for key, value in list(kwargs.items()):
                 setattr(self, key, value)
 
-class TestCustomBase(object):
+class TestCustomBase:
     def teardown(self):
         cleanup_all(True)
 
@@ -37,7 +37,7 @@ class TestCustomBase(object):
         # create a meta entity which mimick cases where dir() method
         # will report attribute that can't be directly accessed.
         # Note: this happens with zope.interface. See ticket #98.
-        class BrokenDescriptor(object):
+        class BrokenDescriptor:
             def __get__(*args):
                 raise AttributeError
 
@@ -70,7 +70,7 @@ class TestCustomBase(object):
         assert b.data == '-b1-'
 
     def test_non_object_base(self):
-        class BaseParent(object):
+        class BaseParent:
             def test(self):
                 return "success"
 
@@ -126,7 +126,7 @@ class TestCustomBase(object):
         assert 'common_id' in B.table.columns
 
     def test_base_with_fields_in_parent(self):
-        class BaseParent(object):
+        class BaseParent:
             common1 = Field(String(32))
 
         class FieldBase(BaseParent, metaclass=EntityMeta):

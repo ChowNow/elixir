@@ -5,7 +5,7 @@ from elixir import *
 from elixir.ext.versioned import acts_as_versioned
 
 
-class TestVersioning(object):
+class TestVersioning:
     def teardown(self):
         cleanup_all(True)
 

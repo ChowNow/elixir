@@ -196,7 +196,7 @@ class VersionedEntityBuilder(EntityBuilder):
         entity.__history_table__ = table
 
         # create an object that represents a version of this entity
-        class Version(object):
+        class Version:
             pass
 
         # map the version class to the history table for this entity

@@ -2,7 +2,7 @@ import sys
 
 MUTATORS = '__elixir_mutators__'
 
-class ClassMutator(object):
+class ClassMutator:
     '''
     DSL-style syntax
 

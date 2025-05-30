@@ -61,7 +61,7 @@ def do_tst(inheritance, polymorphic, expected_res):
             assert real.__class__.__name__ == expected
 
 
-class TestInheritance(object):
+class TestInheritance:
     def teardown(self):
         cleanup_all(True)
 

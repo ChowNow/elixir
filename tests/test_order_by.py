@@ -57,7 +57,7 @@ def teardown():
     cleanup_all()
 
 
-class TestOrderBy(object):
+class TestOrderBy:
     def teardown(self):
         session.expunge_all()
 

@@ -9,7 +9,7 @@ def setup():
     metadata.bind = 'sqlite://'
 
 
-class TestSpecialProperties(object):
+class TestSpecialProperties:
     def teardown(self):
         cleanup_all(True)
 

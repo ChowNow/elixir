@@ -12,7 +12,7 @@ def setup():
 def teardown():
     cleanup_all()
 
-class TestCollections(object):
+class TestCollections:
     def teardown(self):
         cleanup_all()
 

@@ -23,7 +23,7 @@ def setup():
 def teardown():
     elixir.options_defaults['shortnames'] = False
 
-class TestAbstractInheritance(object):
+class TestAbstractInheritance:
     def teardown(self):
         cleanup_all(True)
 

@@ -3,7 +3,7 @@ from elixir import *
 def setup():
     metadata.bind = "sqlite://"
 
-class TestOneToOne(object):
+class TestOneToOne:
     def teardown(self):
         cleanup_all(True)
 

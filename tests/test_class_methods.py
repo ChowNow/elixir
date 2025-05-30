@@ -5,7 +5,7 @@ from elixir import *
 
 #-----------
 
-class TestOldMethods(object):
+class TestOldMethods:
     def setup(self):
         metadata.bind = 'sqlite://'
 

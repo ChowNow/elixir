@@ -6,7 +6,7 @@ def setup():
     metadata.bind = "sqlite://"
 
 
-class TestPerformDDL(object):
+class TestPerformDDL:
     def teardown(self):
         cleanup_all(True)
 
@@ -37,7 +37,7 @@ class TestPerformDDL(object):
         setup_all(True)
         assert Movie.query.count() == 3
 
-class TestPreloadData(object):
+class TestPreloadData:
     def teardown(self):
         cleanup_all(True)
 

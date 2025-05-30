@@ -7,7 +7,7 @@ from sqlalchemy.orm import configure_mappers
 
 #-----------
 
-class TestManyToMany(object):
+class TestManyToMany:
     def setup(self):
         metadata.bind = 'sqlite://'
 
