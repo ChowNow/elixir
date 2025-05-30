@@ -1,8 +1,6 @@
 """
 test inheritance
 """
-from builtins import zip
-from builtins import object
 from elixir import *
 import elixir
 

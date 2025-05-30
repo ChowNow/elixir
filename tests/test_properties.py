@@ -1,7 +1,6 @@
 """
 test special properties (eg. column_property, ...)
 """
-from builtins import object
 from sqlalchemy import select, func
 from sqlalchemy.orm import column_property
 from elixir import *

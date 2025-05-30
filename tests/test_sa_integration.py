@@ -1,7 +1,6 @@
 """
 test integrating Elixir entities with plain SQLAlchemy defined classes
 """
-from builtins import object
 from sqlalchemy.orm import *
 from sqlalchemy import *
 from elixir import *

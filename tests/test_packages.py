@@ -1,7 +1,6 @@
 """
 Test spreading entities accross several modules
 """
-from builtins import object
 import sys
 
 import elixir

@@ -1,7 +1,6 @@
 """
 test the different syntaxes to define fields
 """
-from builtins import object
 from elixir import *
 
 def setup():

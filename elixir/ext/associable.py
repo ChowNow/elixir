@@ -109,7 +109,6 @@ The generated Elixir Statement has several options available:
 |               | lazily loaded.                                              |
 +---------------+-------------------------------------------------------------+
 '''
-from builtins import object
 from elixir.statements import Statement
 import sqlalchemy as sa
 

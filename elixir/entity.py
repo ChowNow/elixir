@@ -2,7 +2,6 @@
 This module provides the ``Entity`` base class, as well as its metaclass
 ``EntityMeta``.
 '''
-from builtins import object
 import sys
 import types
 import warnings

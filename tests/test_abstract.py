@@ -1,7 +1,6 @@
 """
 test inheritance with abstract entities
 """
-from builtins import object
 import re
 
 from elixir import *

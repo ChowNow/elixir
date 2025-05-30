@@ -1,7 +1,6 @@
 """
     test has_*(..., through=...) syntax
 """
-from builtins import object
 from elixir import *
 from datetime import datetime
 

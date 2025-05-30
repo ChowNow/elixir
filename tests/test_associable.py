@@ -1,7 +1,6 @@
 """
 Test the associable statement generator
 """
-from builtins import object
 from sqlalchemy import and_
 
 from elixir import *

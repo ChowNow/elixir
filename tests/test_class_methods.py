@@ -1,7 +1,6 @@
 """
     simple test case
 """
-from builtins import object
 from elixir import *
 
 #-----------

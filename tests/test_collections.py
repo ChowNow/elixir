@@ -1,7 +1,6 @@
 """
 Test collections
 """
-from builtins import object
 from sqlalchemy import Table
 from elixir import *
 import elixir

@@ -399,7 +399,6 @@ ManyToMany_ relationships.
         has_and_belongs_to_many('articles', of_kind='Article')
 
 '''
-from builtins import str, zip
 import warnings
 
 from sqlalchemy import ForeignKeyConstraint, Column, Table, and_

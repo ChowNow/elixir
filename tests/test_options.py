@@ -1,7 +1,6 @@
 """
 test options
 """
-from builtins import object
 from sqlalchemy import UniqueConstraint, create_engine, Column
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.exc import StatementError

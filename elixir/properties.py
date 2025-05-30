@@ -29,7 +29,6 @@ Here is a quick example of how to use ``has_property``.
                      lambda c: column_property(
                          (c.quantity * c.unit_price).label('price')))
 '''
-from builtins import object
 from elixir.statements import PropertyStatement
 from sqlalchemy.orm import column_property, synonym
 

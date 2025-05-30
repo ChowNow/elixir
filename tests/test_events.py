@@ -1,4 +1,3 @@
-from builtins import object
 from elixir import *
 from elixir.events import *
 

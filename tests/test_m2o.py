@@ -1,7 +1,6 @@
 """
 test many to one relationships
 """
-from builtins import object
 from elixir import *
 
 def setup():

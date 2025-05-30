@@ -1,7 +1,6 @@
 """
 test many to many relationships
 """
-from builtins import object
 from elixir import *
 import elixir
 from sqlalchemy.orm import configure_mappers

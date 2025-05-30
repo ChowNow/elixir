@@ -1,7 +1,6 @@
 """
 test ordering options
 """
-from builtins import object
 from elixir import *
 
 

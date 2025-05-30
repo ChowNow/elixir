@@ -1,7 +1,6 @@
 """
 test autoloaded entities
 """
-from builtins import object
 from sqlalchemy import Table, Column, ForeignKey
 from elixir import *
 import elixir

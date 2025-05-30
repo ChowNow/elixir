@@ -1,7 +1,6 @@
 """
     test the deep-set functionality
 """
-from builtins import object
 from elixir import *
 
 def setup():
