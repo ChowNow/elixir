@@ -1,9 +1,6 @@
 """
 test autoloaded entities
 """
-from __future__ import absolute_import
-
-from builtins import object
 from sqlalchemy import Table, Column, ForeignKey
 from elixir import *
 import elixir
@@ -26,7 +23,7 @@ def teardown():
 
 # -----------
 
-class TestAutoload(object):
+class TestAutoload:
     def setup(self):
         metadata.bind = 'sqlite://'
 

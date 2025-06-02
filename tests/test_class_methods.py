@@ -1,14 +1,11 @@
 """
     simple test case
 """
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 
 #-----------
 
-class TestOldMethods(object):
+class TestOldMethods:
     def setup(self):
         metadata.bind = 'sqlite://'
 

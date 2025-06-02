@@ -1,10 +1,6 @@
 """
 test inheritance
 """
-from __future__ import absolute_import, print_function
-
-from builtins import zip
-from builtins import object
 from elixir import *
 import elixir
 
@@ -65,7 +61,7 @@ def do_tst(inheritance, polymorphic, expected_res):
             assert real.__class__.__name__ == expected
 
 
-class TestInheritance(object):
+class TestInheritance:
     def teardown(self):
         cleanup_all(True)
 

@@ -1,15 +1,12 @@
 """
 test many to one relationships
 """
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 
 def setup():
     metadata.bind = 'sqlite://'
 
-class TestManyToOne(object):
+class TestManyToOne:
     def teardown(self):
         cleanup_all(True)
 

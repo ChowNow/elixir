@@ -109,8 +109,6 @@ The generated Elixir Statement has several options available:
 |               | lazily loaded.                                              |
 +---------------+-------------------------------------------------------------+
 '''
-from __future__ import absolute_import
-from builtins import object
 from elixir.statements import Statement
 import sqlalchemy as sa
 
@@ -130,13 +128,13 @@ def associable(assoc_entity, plural_name=None, lazy=True):
         plural_name = interface_name
         attr_name = "%s_rel" % interface_name
 
-    class GenericAssoc(object):
+    class GenericAssoc:
 
         def __init__(self, tablename):
             self.type = tablename
 
     #TODO: inherit from entity builder
-    class Associable(object):
+    class Associable:
         """An associable Elixir Statement object"""
 
         def __init__(self, entity, name=None, uselist=True, lazy=True):

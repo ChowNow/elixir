@@ -1,9 +1,6 @@
 """
     test the deep-set functionality
 """
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 
 def setup():
@@ -31,7 +28,7 @@ def setup():
 def teardown():
     cleanup_all()
 
-class TestDeepSet(object):
+class TestDeepSet:
     def setup(self):
         create_all()
 
@@ -156,7 +153,7 @@ class TestDeepSet(object):
                          'tbl3': {'t3id': 1,
                                   'name': 'test3'}}}
 
-class TestSetOnAliasedColumn(object):
+class TestSetOnAliasedColumn:
     def setup(self):
         metadata.bind = 'sqlite://'
         session.expunge_all()

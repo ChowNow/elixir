@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 import turbogears
 from nose import with_setup
 from turbogears import testutil

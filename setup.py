@@ -1,8 +1,7 @@
-from __future__ import absolute_import
 from setuptools import setup, find_packages
 
 setup(name="Elixir",
-      version="1.0.1",
+      version="2.0.0",
       description="Declarative Mapper for SQLAlchemy",
       long_description="""
 Elixir
@@ -30,7 +29,6 @@ SVN version: <http://elixir.ematia.de/svn/elixir/trunk#egg=Elixir-dev>
       license="MIT License",
       install_requires=[
           "SQLAlchemy == 1.3.24",
-          "future"
       ],
       packages=find_packages(exclude=['ez_setup', 'tests', 'examples']),
       classifiers=[

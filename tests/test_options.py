@@ -1,16 +1,13 @@
 """
 test options
 """
-from __future__ import absolute_import
-
-from builtins import object
 from sqlalchemy import UniqueConstraint, create_engine, Column
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.exc import StatementError
 from sqlalchemy.orm.exc import ConcurrentModificationError
 from elixir import *
 
-class TestOptions(object):
+class TestOptions:
     def setup(self):
         metadata.bind = 'sqlite://'
 
@@ -91,7 +88,7 @@ class TestOptions(object):
         options_defaults['tablename'] = None
 
 
-class TestSessionOptions(object):
+class TestSessionOptions:
     def setup(self):
         metadata.bind = None
 
@@ -185,7 +182,7 @@ class TestSessionOptions(object):
         del __session__
 
 
-class TestTableOptions(object):
+class TestTableOptions:
     def setup(self):
         metadata.bind = 'sqlite://'
 

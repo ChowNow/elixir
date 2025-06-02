@@ -1,9 +1,6 @@
 """
 Test the associable statement generator
 """
-from __future__ import absolute_import
-
-from builtins import object
 from sqlalchemy import and_
 
 from elixir import *
@@ -13,7 +10,7 @@ from elixir.ext.associable import associable
 def setup():
     metadata.bind = 'sqlite://'
 
-class TestOrders(object):
+class TestOrders:
     def teardown(self):
         cleanup_all(True)
 

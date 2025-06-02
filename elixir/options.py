@@ -177,8 +177,6 @@ not work on normal entities, and the normal using_options statement does not
 work on base classes (because normal options do not and should not propagate to
 the children classes).
 '''
-from __future__ import absolute_import
-
 from sqlalchemy import Integer, String
 
 from elixir.statements import ClassMutator

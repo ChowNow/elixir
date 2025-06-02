@@ -2,11 +2,6 @@
 This module provides the ``Entity`` base class, as well as its metaclass
 ``EntityMeta``.
 '''
-from __future__ import absolute_import, print_function
-
-from builtins import object
-from future.utils import with_metaclass
-from past.builtins import basestring
 import sys
 import types
 import warnings
@@ -50,7 +45,7 @@ def session_mapper_factory(scoped_session):
     return session_mapper
 
 
-class EntityDescriptor(object):
+class EntityDescriptor:
     '''
     EntityDescriptor describes fields and options needed for table creation.
     '''
@@ -176,7 +171,7 @@ class EntityDescriptor(object):
             self.identity = self.identity(entity)
 
         if self.polymorphic:
-            if not isinstance(self.polymorphic, basestring):
+            if not isinstance(self.polymorphic, str):
                 self.polymorphic = options.DEFAULT_POLYMORPHIC_COL_NAME
 
     #---------------------
@@ -233,7 +228,7 @@ class EntityDescriptor(object):
                         if col.primary_key:
                             self.add_column(col.copy())
             elif not self.has_pk and self.auto_primarykey:
-                if isinstance(self.auto_primarykey, basestring):
+                if isinstance(self.auto_primarykey, str):
                     colname = self.auto_primarykey
                 else:
                     colname = options.DEFAULT_AUTO_PRIMARYKEY_NAME
@@ -305,7 +300,7 @@ class EntityDescriptor(object):
                                        options.POLYMORPHIC_COL_TYPE))
 
             if self.version_id_col:
-                if not isinstance(self.version_id_col, basestring):
+                if not isinstance(self.version_id_col, str):
                     self.version_id_col = options.DEFAULT_VERSION_ID_COL_NAME
                 self.add_column(Column(self.version_id_col, Integer))
 
@@ -373,7 +368,7 @@ class EntityDescriptor(object):
         return children
 
     def translate_order_by(self, order_by):
-        if isinstance(order_by, basestring):
+        if isinstance(order_by, str):
             order_by = [order_by]
 
         order = []
@@ -671,7 +666,7 @@ class EntityDescriptor(object):
             self._pk_props = [col_to_prop[c] for c in pk_cols]
         return self._pk_props
 
-class FakePK(object):
+class FakePK:
     def __init__(self, descriptor):
         self.descriptor = descriptor
 
@@ -679,7 +674,7 @@ class FakePK(object):
     def columns(self):
         return self.descriptor.primary_keys
 
-class FakeTable(object):
+class FakeTable:
     def __init__(self, descriptor):
         self.descriptor = descriptor
         self.primary_key = FakePK(descriptor)
@@ -861,7 +856,7 @@ def cleanup_entities(entities):
         desc.constraints = []
         desc.properties = {}
 
-class EntityBase(object):
+class EntityBase:
     """
     This class holds all methods of the "Entity" base class, but does not act
     as a base class itself (it does not use the EntityMeta metaclass), but
@@ -1024,7 +1019,7 @@ class EntityBase(object):
         return cls.query.get(*args, **kwargs)
 
 
-class Entity(with_metaclass(EntityMeta, EntityBase)):
+class Entity(EntityBase, metaclass=EntityMeta):
     '''
     The base class for all entities
 

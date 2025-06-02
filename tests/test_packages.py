@@ -1,9 +1,6 @@
 """
 Test spreading entities accross several modules
 """
-from __future__ import absolute_import
-
-from builtins import object
 import sys
 
 import elixir
@@ -15,7 +12,7 @@ def setup():
         sys.modules.pop('tests.%s' % module, None)
 
 
-class TestPackages(object):
+class TestPackages:
     def teardown(self):
         # This is an ugly workaround because when nosetest is run globally (ie
         # either on the tests directory or in the "trunk" directory, it imports

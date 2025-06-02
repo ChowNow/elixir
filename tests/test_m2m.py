@@ -1,16 +1,13 @@
 """
 test many to many relationships
 """
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 import elixir
 from sqlalchemy.orm import configure_mappers
 
 #-----------
 
-class TestManyToMany(object):
+class TestManyToMany:
     def setup(self):
         metadata.bind = 'sqlite://'
 

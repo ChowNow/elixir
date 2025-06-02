@@ -1,9 +1,6 @@
 """
 test inheritance with abstract entities
 """
-from __future__ import absolute_import
-
-from builtins import object
 import re
 
 from elixir import *
@@ -26,7 +23,7 @@ def setup():
 def teardown():
     elixir.options_defaults['shortnames'] = False
 
-class TestAbstractInheritance(object):
+class TestAbstractInheritance:
     def teardown(self):
         cleanup_all(True)
 

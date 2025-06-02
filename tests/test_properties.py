@@ -1,9 +1,6 @@
 """
 test special properties (eg. column_property, ...)
 """
-from __future__ import absolute_import
-
-from builtins import object
 from sqlalchemy import select, func
 from sqlalchemy.orm import column_property
 from elixir import *
@@ -12,7 +9,7 @@ def setup():
     metadata.bind = 'sqlite://'
 
 
-class TestSpecialProperties(object):
+class TestSpecialProperties:
     def teardown(self):
         cleanup_all(True)
 

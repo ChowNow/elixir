@@ -1,6 +1,3 @@
-from __future__ import absolute_import
-
-from builtins import object
 import time
 from datetime import datetime
 
@@ -8,7 +5,7 @@ from elixir import *
 from elixir.ext.versioned import acts_as_versioned
 
 
-class TestVersioning(object):
+class TestVersioning:
     def teardown(self):
         cleanup_all(True)
 

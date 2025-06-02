@@ -1,9 +1,6 @@
 """
 test ordering options
 """
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 
 
@@ -60,7 +57,7 @@ def teardown():
     cleanup_all()
 
 
-class TestOrderBy(object):
+class TestOrderBy:
     def teardown(self):
         session.expunge_all()
 

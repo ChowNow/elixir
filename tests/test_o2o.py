@@ -1,12 +1,9 @@
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 
 def setup():
     metadata.bind = "sqlite://"
 
-class TestOneToOne(object):
+class TestOneToOne:
     def teardown(self):
         cleanup_all(True)
 

@@ -1,14 +1,11 @@
 """
 test integrating Elixir entities with plain SQLAlchemy defined classes
 """
-from __future__ import absolute_import
-
-from builtins import object
 from sqlalchemy.orm import *
 from sqlalchemy import *
 from elixir import *
 
-class TestSQLAlchemyToElixir(object):
+class TestSQLAlchemyToElixir:
     def setup(self):
         metadata.bind = "sqlite://"
 
@@ -30,7 +27,7 @@ class TestSQLAlchemyToElixir(object):
         )
         b_table.create()
 
-        class B(object):
+        class B:
             pass
 
         mapper(B, b_table, properties={
@@ -50,7 +47,7 @@ class TestSQLAlchemyToElixir(object):
         assert b.a.name == 'a1'
 
 
-class TestElixirToSQLAlchemy(object):
+class TestElixirToSQLAlchemy:
     def setup(self):
         metadata.bind = "sqlite://"
 
@@ -64,7 +61,7 @@ class TestElixirToSQLAlchemy(object):
         )
         a_table.create()
 
-        class A(object):
+        class A:
             pass
 
         mapper(A, a_table)
@@ -94,7 +91,7 @@ class TestElixirToSQLAlchemy(object):
         )
         a_table.create()
 
-        class A(object):
+        class A:
             pass
 
         mapper(A, a_table)
@@ -128,7 +125,7 @@ class TestElixirToSQLAlchemy(object):
 #        )
 #        a_table.create()
 #
-#        class A(object):
+#        class A:
 #            pass
 #
 #        mapper(A, a_table)

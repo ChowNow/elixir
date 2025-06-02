@@ -44,9 +44,6 @@ Note that relationships that are stored in mapping tables will not be included
 as part of the versioning process, and will need to be handled manually. Only
 values within the entity's main table will be versioned into the history table.
 '''
-from __future__ import absolute_import
-
-from builtins import object
 from datetime              import datetime
 import inspect
 
@@ -199,7 +196,7 @@ class VersionedEntityBuilder(EntityBuilder):
         entity.__history_table__ = table
 
         # create an object that represents a version of this entity
-        class Version(object):
+        class Version:
             pass
 
         # map the version class to the history table for this entity

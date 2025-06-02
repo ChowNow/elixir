@@ -1,6 +1,3 @@
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 
 def setup():
@@ -18,7 +15,7 @@ def setup():
 
     setup_all()
 
-class TestNestedClass(object):
+class TestNestedClass:
     def test_nestedclass(self):
         assert 'name' in Thing.table.columns
         assert 'type' in Thing.table.columns

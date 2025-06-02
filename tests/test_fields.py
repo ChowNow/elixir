@@ -1,15 +1,12 @@
 """
 test the different syntaxes to define fields
 """
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 
 def setup():
     metadata.bind = 'sqlite://'
 
-class TestFields(object):
+class TestFields:
     def teardown(self):
         cleanup_all(True)
 

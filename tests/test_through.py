@@ -1,9 +1,6 @@
 """
     test has_*(..., through=...) syntax
 """
-from __future__ import absolute_import
-
-from builtins import object
 from elixir import *
 from datetime import datetime
 
@@ -11,7 +8,7 @@ def setup():
     metadata.bind = 'sqlite://'
 
 
-class TestThrough(object):
+class TestThrough:
     def teardown(self):
         cleanup_all(True)
 
